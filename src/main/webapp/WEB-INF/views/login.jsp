@@ -33,10 +33,10 @@
 				</div>
 			</c:if>
 			<form method="post" action="authentication">
-				<input name="username" type="text" value="${userremember}" placeholder="Username" /><br />
+				<input name="username" type="text" value="${cookie.Username.value}" placeholder="Username" /><br />
 				<input name="password" type="password" placeholder="Password" /><br />
 				<input
-					id="remember" type="checkbox" name="remember" ${rememberme} /><label
+					id="remember" type="checkbox" name="remember" <c:if test="${not empty cookie.Username.value}">checked</c:if> /><label
 					for="remember">Remember me?</label><br />
 				<input type="submit" class="btn btn-primary btn-lg" 
 					value="Login" />

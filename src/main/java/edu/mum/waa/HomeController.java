@@ -29,20 +29,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = {"/authentication", "/"}, method = RequestMethod.GET)
 	public String login(Model model, HttpServletRequest request, String error) {
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			String username = "";
-			String checked = "";
-			for (Cookie c : cookies) {
-				if ("Username".equals(c.getName()) ) {
-					username = c.getValue();
-					checked = "checked";
-					break;
-				}
-			}
-			model.addAttribute("userremember", username);
-			model.addAttribute("rememberme", checked);
-		}
 		if (error != null)
 			model.addAttribute("error", "Invalid login");
 		return "login";
